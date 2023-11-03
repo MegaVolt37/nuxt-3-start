@@ -1,0 +1,31 @@
+@import "fonts.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nuxt-icon svg {
+	width: inherit !important;
+	height: inherit !important;
+	margin-bottom: 0;
+}
+body {
+	background-color: theme(colors.dark_white_100);
+	@media (prefers-color-scheme: dark) {
+  .dark\:bg-black {
+    background-color: theme('colors.dark_black_100');
+  }
+}
+}
+.container {
+	padding: 0 theme('padding.16');
+	margin: 0 auto;
+	@screen md {
+	padding: 0 theme('padding.20');
+	margin: 0 auto;
+	}
+}
+main {
+	max-width: 100vw;
+	overflow: hidden;
+}
