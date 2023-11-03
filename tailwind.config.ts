@@ -20,6 +20,7 @@ export default <Partial<Config>>{
         blue_100: '#76D4CF',
         blue_200: '#34AFA8',
         blue_300: '#3B7373',
+        blue_400: '#62C6C0',
         dark_blue_100: '#2EDDD3',
         gray_100: '#292929',
         gray_200: '#6D6D6D',
