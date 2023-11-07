@@ -2,10 +2,11 @@
   <PagesHomeMain />
   <PagesHomeAbout />
   <PagesHomeHistory />
+  <PagesHomePartnears />
   <PagesHomeProcess />
   <PagesHomeHowWork />
   <PagesHomeProducts />
-  <PagesHomeForm />
+  <AppForm />
 </template>
 
 <script lang="ts" setup></script>

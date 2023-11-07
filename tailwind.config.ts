@@ -10,7 +10,7 @@ export default <Partial<Config>>{
       colors: {
         black_100: '#070707',
         black_200: '#1E1E1E',
-        black_300: '#1E1E1E',
+        black_300: '#000000',
         dark_black_100: '#FCFCFC',
         stroke_100: '#E2E1E3',
         dark_stroke_100: '#555555',
@@ -24,6 +24,7 @@ export default <Partial<Config>>{
         dark_blue_100: '#2EDDD3',
         gray_100: '#292929',
         gray_200: '#6D6D6D',
+        gray_300: '#A4A4A4',
       },
       fontSize: {
         ...pxToRemPair(12),
@@ -43,6 +44,7 @@ export default <Partial<Config>>{
         ...pxToRemPair(16),
         ...pxToRemPair(32),
         ...pxToRemPair(150),
+        ...pxToRemPair(285),
         ...pxToRemPair(320),
         ...pxToRemPair(360),
       },
@@ -82,6 +84,7 @@ export default <Partial<Config>>{
         ...pxToRemPair(80),
       },
       margin: {
+        ...pxToRemPair(6),
         ...pxToRemPair(8),
         ...pxToRemPair(12),
         ...pxToRemPair(16),
@@ -138,6 +141,7 @@ export default <Partial<Config>>{
     },
     backgroundImage: {
       'bg_home': 'url("~/assets/images/bg_home.jpg")',
+      'bg_about': 'url("~/assets/images/bg_about.jpg")',
       'bg_form': 'url("~/assets/images/bg_form.jpg")',
     }
   },

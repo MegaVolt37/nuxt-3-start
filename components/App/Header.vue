@@ -1,49 +1,76 @@
 <template>
   <header
-    class="bg-white_100 dark:bg-dark_white_100 py-16 border-b border-b-stroke_100 dark:border-b-dark_stroke_100 sticky top-0 z-50">
+    class="bg-white_100 dark:bg-dark_white_100 py-16 border-b border-b-stroke_100 dark:border-b-dark_stroke_100 sticky top-0 z-50"
+  >
     <div class="container mx-auto">
       <div class="flex items-center justify-between">
-        <div>
+        <NuxtLink to="/">
           <NuxtIcon class="h-30 w-150 cursor-pointer" name="logo_header" filled />
-        </div>
+        </NuxtLink>
         <nav class="md:block hidden">
           <ul class="flex items-center gap-40 max-[992px]:gap-20">
             <li v-for="(item, index) in links" :key="index">
-              <NuxtLink class="text-20 max-[992px]:text-16 font-light text-black_100 dark:text-dark_black_100"
-                :to="item.url">{{ item.name }}
+              <NuxtLink
+                class="text-20 max-[992px]:text-16 font-light text-black_100 dark:text-dark_black_100"
+                :to="item.url"
+                >{{ item.name }}
               </NuxtLink>
             </li>
           </ul>
         </nav>
         <div class="md:grid hidden items-center gap-x-20 grid-cols-2">
-          <NuxtLink class="block min-w-140 text-16 text-black_100 dark:text-dark_black_100" to="tel:+79999999999">+7 999
-            999 99 99</NuxtLink>
+          <NuxtLink
+            class="block min-w-140 text-16 text-black_100 dark:text-dark_black_100"
+            to="tel:+79999999999"
+            >+7 999 999 99 99</NuxtLink
+          >
           <button
-            class="bg-black_100 dark:bg-dark_black_100 text-white_100 dark:text-dark_white_100 flex justify-center items-center max-w-150 h-46 w-full text-16 font-medium">
+            class="bg-black_100 dark:bg-dark_black_100 text-white_100 dark:text-dark_white_100 flex justify-center items-center max-w-150 h-46 w-full text-16 font-medium"
+          >
             Связаться
           </button>
         </div>
         <div class="md:hidden block">
           <button
             class="burger after:bg-black_100 dark:after:bg-dark_black_100 before:bg-black_100 dark:before:bg-dark_black_100 before:shadow-[0_11px_0] before:shadow-black_100 dark:before:shadow-dark_black_100"
-            :class="{ active: isOpenMenu }" @click="openMenu"></button>
+            :class="{ active: isOpenMenu }"
+            @click="openMenu"
+          ></button>
           <el-drawer
             class="text-white_100 bg-white_100 dark:text-dark_white_100 dark:bg-dark_white_100 !border-stroke_100"
-            :direction="'ttb'" :with-header="false" v-model="isOpenMenu" :size="'100%'" :before-close="handleClose">
+            :direction="'ttb'"
+            :with-header="false"
+            v-model="isOpenMenu"
+            :size="'100%'"
+            :before-close="handleClose"
+          >
             <el-collapse v-model="activeName" accordion class="!border-none -mt-20 mb-20">
               <NuxtLink to="/about" class="block">
                 <el-collapse-item class="text-stroke_100 dark:text-dark_stroke_100">
                   <template #title>
-                    <span class="text-black_100 dark:text-dark_black_100 text-20 font-semibold">О нас</span>
+                    <span
+                      class="text-black_100 dark:text-dark_black_100 text-20 font-semibold"
+                      >О нас</span
+                    >
                   </template>
                 </el-collapse-item>
               </NuxtLink>
-              <el-collapse-item name="1" class="text-stroke_100 dark:text-dark_stroke_100">
+              <el-collapse-item
+                name="1"
+                class="text-stroke_100 dark:text-dark_stroke_100"
+              >
                 <template #title>
                   <div class="flex items-center justify-between w-full">
-                    <span class="text-black_100 dark:text-dark_black_100 text-20 font-semibold">Бренды</span>
+                    <span
+                      class="text-black_100 dark:text-dark_black_100 text-20 font-semibold"
+                      >Бренды</span
+                    >
                     <!-- <el-icon class="header-icon"> </el-icon> -->
-                    <NuxtIcon class="head er-icon text-black_100 dark:text-dark_black_100" name="CaretDown" filled />
+                    <NuxtIcon
+                      class="head er-icon text-black_100 dark:text-dark_black_100"
+                      name="CaretDown"
+                      filled
+                    />
                   </div>
                 </template>
                 <ul class="pl-24 flex flex-col gap-18">
@@ -59,20 +86,39 @@
                 </ul>
               </el-collapse-item>
               <NuxtLink to="/contact-us" class="block">
-                <el-collapse-item class="text-stroke_100 dark:text-dark_stroke_100"><template class="ittt" #title>
+                <el-collapse-item class="text-stroke_100 dark:text-dark_stroke_100"
+                  ><template class="ittt" #title>
                     <span
-                      class="text-black_100 dark:text-dark_black_100 text-20 leading-28 font-semibold">Контакты</span></template></el-collapse-item>
+                      class="text-black_100 dark:text-dark_black_100 text-20 leading-28 font-semibold"
+                      >Контакты</span
+                    ></template
+                  ></el-collapse-item
+                >
               </NuxtLink>
             </el-collapse>
             <div class="flex flex-col gap-24 mt-auto pb-12">
-              <NuxtLink class="text-black_100 dark:text-dark_black_100 text-18 flex items-center gap-16">
-                <NuxtIcon class="text-black_100 dark:text-dark_black_100" name="phone" filled />+7 999 999 99 99
+              <NuxtLink
+                class="text-black_100 dark:text-dark_black_100 text-18 flex items-center gap-16"
+              >
+                <NuxtIcon
+                  class="text-black_100 dark:text-dark_black_100"
+                  name="phone"
+                  filled
+                />+7 999 999 99 99
               </NuxtLink>
-              <NuxtLink class="text-black_100 dark:text-dark_black_100 text-18 flex items-center gap-16">
-                <NuxtIcon class="text-black_100 dark:text-dark_black_100" name="mail" filled />
+              <NuxtLink
+                class="text-black_100 dark:text-dark_black_100 text-18 flex items-center gap-16"
+              >
+                <NuxtIcon
+                  class="text-black_100 dark:text-dark_black_100"
+                  name="mail"
+                  filled
+                />
                 email@email.com
               </NuxtLink>
-              <button class="mt-16 w-full text-16 font-medium text-white_100 bg-blue_200 py-16">
+              <button
+                class="mt-16 w-full text-16 font-medium text-white_100 bg-blue_200 py-16"
+              >
                 Связаться
               </button>
             </div>
@@ -167,7 +213,8 @@ const handleClose = (done: () => void) => {
   }
 }
 
-.el-collapse {}
+.el-collapse {
+}
 
 .el-collapse-item__header,
 .el-collapse-item__content,
