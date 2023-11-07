@@ -49,10 +49,13 @@ export default <Partial<Config>>{
         ...pxToRemPair(360),
       },
       maxWidth: {
+        ...pxToRemPair(125),
         ...pxToRemPair(150),
         ...pxToRemPair(167),
         ...pxToRemPair(285),
         ...pxToRemPair(566),
+        ...pxToRemPair(590),
+        ...pxToRemPair(600),
         ...pxToRemPair(720),
         ...pxToRemPair(895),
         ...pxToRemPair(1200),
@@ -73,6 +76,7 @@ export default <Partial<Config>>{
         ...pxToRemPair(320),
         ...pxToRemPair(360),
         ...pxToRemPair(560),
+        ...pxToRemPair(600),
       },
       padding: {
         ...pxToRemPair(12),
@@ -81,6 +85,7 @@ export default <Partial<Config>>{
         ...pxToRemPair(24),
         ...pxToRemPair(32),
         ...pxToRemPair(40),
+        ...pxToRemPair(48),
         ...pxToRemPair(80),
       },
       margin: {

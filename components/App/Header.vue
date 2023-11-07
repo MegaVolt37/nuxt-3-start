@@ -43,18 +43,30 @@
             v-model="isOpenMenu"
             :size="'100%'"
             :before-close="handleClose"
+            @close="closeDrawer"
           >
-            <el-collapse v-model="activeName" accordion class="!border-none -mt-20 mb-20">
-              <NuxtLink to="/about" class="block">
-                <el-collapse-item class="text-stroke_100 dark:text-dark_stroke_100">
-                  <template #title>
-                    <span
-                      class="text-black_100 dark:text-dark_black_100 text-20 font-semibold"
-                      >О нас</span
-                    >
-                  </template>
-                </el-collapse-item>
-              </NuxtLink>
+            <el-collapse
+              v-model="activeName"
+              @change=""
+              accordion
+              class="!border-none -mt-20 mb-20"
+            >
+              <div @click="isOpenMenu = false">
+                <NuxtLink to="/about" class="block">
+                  <el-collapse-item
+                    :disabled="true"
+                    @click="isOpenMenu = false"
+                    class="text-stroke_100 dark:text-dark_stroke_100"
+                  >
+                    <template #title>
+                      <span
+                        class="text-black_100 dark:text-dark_black_100 text-20 font-semibold"
+                        >О нас</span
+                      >
+                    </template>
+                  </el-collapse-item>
+                </NuxtLink>
+              </div>
               <el-collapse-item
                 name="1"
                 class="text-stroke_100 dark:text-dark_stroke_100"
@@ -85,16 +97,20 @@
                   </li>
                 </ul>
               </el-collapse-item>
-              <NuxtLink to="/contact-us" class="block">
-                <el-collapse-item class="text-stroke_100 dark:text-dark_stroke_100"
-                  ><template class="ittt" #title>
-                    <span
-                      class="text-black_100 dark:text-dark_black_100 text-20 leading-28 font-semibold"
-                      >Контакты</span
-                    ></template
-                  ></el-collapse-item
-                >
-              </NuxtLink>
+              <div @click="isOpenMenu = false">
+                <NuxtLink to="/contact-us" class="block">
+                  <el-collapse-item
+                    @click="isOpenMenu = false"
+                    class="text-stroke_100 dark:text-dark_stroke_100"
+                    ><template #title>
+                      <span
+                        class="text-black_100 dark:text-dark_black_100 text-20 leading-28 font-semibold"
+                        >Контакты</span
+                      ></template
+                    ></el-collapse-item
+                  >
+                </NuxtLink>
+              </div>
             </el-collapse>
             <div class="flex flex-col gap-24 mt-auto pb-12">
               <NuxtLink
@@ -130,6 +146,7 @@
 </template>
 
 <script lang="ts" setup>
+const route = useRoute();
 const links = [
   {
     name: "О нас",
@@ -153,6 +170,13 @@ const openMenu = () => {
 const handleClose = (done: () => void) => {
   done();
 };
+watch(
+  () => route.path,
+  () => {
+    isOpenMenu.value = false;
+  },
+  { deep: true }
+);
 </script>
 
 <style lang="scss">
@@ -235,7 +259,10 @@ const handleClose = (done: () => void) => {
   border-color: currentColor;
   color: currentColor;
 }
-
+.el-collapse-item.is-disabled .el-collapse-item__header {
+  cursor: pointer;
+  color: inherit;
+}
 .el-collapse-item__wrap {
   border-color: currentColor;
   color: currentColor;
